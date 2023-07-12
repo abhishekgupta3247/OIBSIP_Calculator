@@ -7,6 +7,12 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.google.android.material.button.MaterialButton;
+import org.mozilla.javascript.Context;
+import org.mozilla.javascript.Scriptable;
+
+//to calculate the result we import 2things
+
+
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -86,6 +92,33 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //        dataToCalculate = dataToCalculate + buttonText; //SHIFTED ABOVE
         solutionTV.setText(dataToCalculate); //now we r setting to see(show concatination there(in the solnTV))
         //in above lines of code we set rules for AC and C
+
+
+        //After setting try catch
+        String finalResult = getResult(dataToCalculate);
+
+        if(!finalResult.equals("Err")){
+            resultTV.setText(finalResult);
+        }
     }
-    
+
+    //WE'LL CREATE A METHOD TO CALCULATE whatever is in the solutionTV
+    //it will take data nd return the calculated data
+    String getResult(String data){
+//        return "Calculated";
+        //to evaluate the data we import a lib nd pasted it to build.gradle
+        //implementation 'com.faendir.rhino:rhino-android:1.5.2'
+
+        try{
+            Context context = Context.enter();
+            context.setOptimizationLevel(-1);
+            Scriptable scriptable = context.initSafeStandardObjects();
+            String finalResult = context.evaluateString(scriptable,data,"Javascript",1,null).toString();
+            return finalResult;
+        }catch(Exception e){
+            return "Err";
+        }
+
+
+    }
 }
