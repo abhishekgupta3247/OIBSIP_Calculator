@@ -56,6 +56,36 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
+        MaterialButton button = (MaterialButton) v;
+        String buttonText = button.getText().toString();
+        //Test Buttons
+//        solutionTV.setText(buttonText);
 
+        //we'll take string to calculate the data whatever will be there in solutionTV
+        String dataToCalculate = solutionTV.getText().toString();
+
+
+        // AC C = don't want to concatenate
+        if(buttonText.equals("AC")){
+            solutionTV.setText("");
+            resultTV.setText("0");
+            return;
+        }
+        if(buttonText.equals("=")){
+            solutionTV.setText(resultTV.getText());
+        }
+        if(buttonText.equals("C")){
+            dataToCalculate = dataToCalculate.substring(0,dataToCalculate.length()-1); //trimmed the last character
+        }else{
+            dataToCalculate = dataToCalculate + buttonText;
+        }
+
+
+
+        //it will concatinate the texts
+//        dataToCalculate = dataToCalculate + buttonText; //SHIFTED ABOVE
+        solutionTV.setText(dataToCalculate); //now we r setting to see(show concatination there(in the solnTV))
+        //in above lines of code we set rules for AC and C
     }
+    
 }
