@@ -20,6 +20,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        resultTV = findViewById(R.id.result_tv);
+        solutionTV = findViewById(R.id.solution_tv);
+        
     }
 
     @Override
