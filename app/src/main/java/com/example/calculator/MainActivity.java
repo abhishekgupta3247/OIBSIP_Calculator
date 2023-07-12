@@ -23,7 +23,35 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         resultTV = findViewById(R.id.result_tv);
         solutionTV = findViewById(R.id.solution_tv);
-        
+
+        //assigning IDs using method
+        assignId(buttonC,R.id.button_c);
+        assignId(buttonBracketOpen,R.id.button_open_bracket);
+        assignId(buttonBracketClose,R.id.button_close_bracket);
+        assignId(buttonDivide,R.id.button_divide);
+        assignId(buttonMultiply,R.id.button_multiply);
+        assignId(buttonPlus,R.id.button_plus);
+        assignId(buttonMinus,R.id.button_minus);
+        assignId(buttonEquals,R.id.button_equals);
+        assignId(button0,R.id.button_0);
+        assignId(button1,R.id.button_1);
+        assignId(button2,R.id.button_2);
+        assignId(button3,R.id.button_3);
+        assignId(button4,R.id.button_4);
+        assignId(button5,R.id.button_5);
+        assignId(button6,R.id.button_6);
+        assignId(button7,R.id.button_7);
+        assignId(button8,R.id.button_8);
+        assignId(button9,R.id.button_9);
+        assignId(buttonAC,R.id.button_ac);
+        assignId(buttonDot,R.id.button_dot);
+
+    }
+
+    //created a method to assign IDs to all buttons except resultTV and solutionTV
+    void assignId(MaterialButton btn, int id){
+        btn = findViewById(id);
+        btn.setOnClickListener(this);
     }
 
     @Override
